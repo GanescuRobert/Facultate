@@ -8,7 +8,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Plugins.Interfaces</artifactId>
+            <artifactId>Plugin.Interfaces</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

@@ -11,14 +11,23 @@ import java.util.Scanner;
  */
 public class Board {
     private  ArrayList<IShape> shapes = new ArrayList<>();
+    private Point further=new Point(0,0);
     Scanner sc = new Scanner(System.in);
+    
+    public void updateFutherBoard(IShape tempSh){      
+       var a = tempSh.getFurtherPoint();
+        further.x=Math.max(further.x,tempSh.getFurtherPoint().x);
+        further.y=Math.max(further.y,tempSh.getFurtherPoint().y);  
+    }
     
     public void addShape(IShape tempShape){
         tempShape.read();
         tempShape.calculateAP();//area and perimeter
+        updateFutherBoard(tempShape);
         shapes.add(tempShape);
-        
+        System.out.print("\n**********************************\n");
         System.out.print("The shape you just added:\n");
+        System.out.print("Further point of board x= "+ further.x+ " y= "+ further.y+ "\n");
         tempShape.printDetails();
     }
    
@@ -47,9 +56,18 @@ public class Board {
             int index=0;
             for(var tempShape: shapes){
                 System.out.print("\n"+textIndex + index++ + "\n");
-                
                 tempShape.printDetails();
             }
         }
     }
+     public void editShape(){
+        if(!shapes.isEmpty()){
+            int index;
+            this.printShapes();
+            System.out.print("Enter index shape you want to edit: ");
+            System.out.print("Index= ");  index= sc.nextInt();
+            shapes.get(index).read();
+        }
+    }
+    
 }

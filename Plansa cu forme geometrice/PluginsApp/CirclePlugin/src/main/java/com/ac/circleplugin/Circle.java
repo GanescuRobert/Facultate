@@ -18,8 +18,8 @@ public class Circle implements IShape {
     String name="Circle";
     double area;
     double perimeter;
-    Point center;
-    double radius;
+    Point center=new Point();
+    int radius;
     
     Scanner sc = new Scanner(System.in);
      
@@ -31,14 +31,13 @@ public class Circle implements IShape {
 
     @Override
     public void read() {
-       int x,y;
+        
        System.out.println("Read circle");
        System.out.print("\nEnter center coordoante: ");
-       System.out.print("\nX= "); x= sc.nextInt();
-       System.out.print("\nY= "); y= sc.nextInt();
+       System.out.print("\nX= "); center.x= sc.nextInt();
+       System.out.print("\nY= "); center.y= sc.nextInt();
        System.out.print("\nEnter the radius: ");
-       System.out.print("\nRadius= "); radius = sc.nextDouble();
-       center= new Point(x,y);
+       System.out.print("\nRadius= "); radius = sc.nextInt();  
     }
     
     @Override
@@ -65,4 +64,9 @@ public class Circle implements IShape {
        area=calculateArea();
        perimeter=calculatePerimeter();
     }
+    @Override
+    public Point getFurtherPoint(){
+        return new Point(center.x+radius,center.y +radius);
+    }
+     
 }

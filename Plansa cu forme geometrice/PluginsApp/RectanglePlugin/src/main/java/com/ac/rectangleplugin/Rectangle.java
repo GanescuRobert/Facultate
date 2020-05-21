@@ -18,9 +18,9 @@ public class Rectangle implements IShape {
     String name="Rectangle";
     double area;
     double perimeter;
-    Point center;
-    double bigSide;
-    double smallSide;
+    Point center=new Point();
+    int bigSide;
+    int smallSide;
     
     Scanner sc = new Scanner(System.in);
     
@@ -32,16 +32,16 @@ public class Rectangle implements IShape {
 
     @Override
     public void read() {
-       int x,y;
+      
        System.out.println("Read rectangle");
        System.out.print("\nEnter center coordoante: ");
-       System.out.print("\nX= "); x = sc.nextInt();
-       System.out.print("\nY= "); y = sc.nextInt();
+       System.out.print("\nX= "); center.x = sc.nextInt();
+       System.out.print("\nY= "); center.y = sc.nextInt();
        System.out.print("\nEnter the big Side: ");
-       System.out.print("\nBig Side= "); bigSide = sc.nextDouble();
+       System.out.print("\nBig Side= "); bigSide = sc.nextInt();
        System.out.print("\nEnter the small Side: ");
-       System.out.print("\nSmall Side= "); smallSide = sc.nextDouble();
-       center= new Point(x,y);
+       System.out.print("\nSmall Side= "); smallSide = sc.nextInt();
+     
     }
     
     @Override
@@ -68,5 +68,9 @@ public class Rectangle implements IShape {
     public void calculateAP(){
        area=calculateArea();
        perimeter=calculatePerimeter();
+    }
+    @Override
+    public Point getFurtherPoint(){
+        return new Point((int)(center.x+bigSide/2),(int)(center.y +smallSide/2));
     }
 }

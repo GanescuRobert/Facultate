@@ -17,9 +17,9 @@ public class Diamond implements IShape {
     String name="Diamond";
     double area;
     double perimeter;
-    Point center;
-    double bigDiagonal;
-    double smallDiagonal;
+    Point center=new Point();
+    int bigDiagonal;
+    int smallDiagonal;
     
     Scanner sc = new Scanner(System.in);
         
@@ -30,16 +30,16 @@ public class Diamond implements IShape {
 
     @Override
     public void read() {
-       int x,y;
+       
        System.out.println("Read diamond");
        System.out.print("\nEnter center coordoante: ");
-       System.out.print("\nX= "); x = sc.nextInt();
-       System.out.print("\nY= "); y = sc.nextInt();
+       System.out.print("\nX= "); center.x = sc.nextInt();
+       System.out.print("\nY= "); center.y = sc.nextInt();
        System.out.print("\nEnter the big diagonal: ");
-       System.out.print("\nBig diagonal= "); bigDiagonal = sc.nextDouble();
+       System.out.print("\nBig diagonal= "); bigDiagonal = sc.nextInt();
        System.out.print("\nEnter the small diagonal: ");
-       System.out.print("\nSmall diagonal= "); smallDiagonal = sc.nextDouble();
-       center= new Point(x,y);
+       System.out.print("\nSmall diagonal= "); smallDiagonal = sc.nextInt();
+       ;
     }
     
     @Override
@@ -67,5 +67,9 @@ public class Diamond implements IShape {
        area=calculateArea();
        perimeter=calculatePerimeter();
     }
-    
+    @Override
+    public Point getFurtherPoint(){
+        return new Point((int)(center.x+bigDiagonal/2),(int)(center.y +smallDiagonal/2));
+    }
+     
 }

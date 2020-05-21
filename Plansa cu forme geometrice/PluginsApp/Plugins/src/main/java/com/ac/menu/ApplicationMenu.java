@@ -33,13 +33,18 @@ public class ApplicationMenu{
         ArrayList<IMenuItem> mainItems = new ArrayList();
       
         mainItems.add(new MenuItem("New Shape",1,(parameters)->{
-                    shapeM.execute();      
+                    shapeM.execute();
+                    
                     }));     
         mainItems.add(new MenuItem("Remove Shape",2,(parameters)->{
                       board.removeShape();
                     }));
         mainItems.add(new MenuItem("Show board",3,(parameters)->{
                       board.printShapes();
+                    }));
+         mainItems.add(new MenuItem("Edit Shape",4,(parameters)->{
+                      board.printShapes();
+                      board.editShape();
                     }));
         mainM = new Menu("Main", -1, mainItems);
     }

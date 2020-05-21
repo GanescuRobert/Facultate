@@ -6,6 +6,7 @@
 package com.ac.circleplugin;
 import com.ac.plugins.Interfaces.IPluginsAppPlugin;
 import com.ac.plugins.Interfaces.IShape;
+import java.awt.Point;
 /**
  *
  * @author catalin
@@ -26,5 +27,4 @@ public class CirclePlugin implements IPluginsAppPlugin {
     public IShape getShape() {
         return new Circle();
     }
-    
 }

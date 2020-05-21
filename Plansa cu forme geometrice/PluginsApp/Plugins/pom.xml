@@ -8,11 +8,6 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>Plugins.Interfaces</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>CirclePlugin</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -29,6 +24,11 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>SquarePlugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Plugin.Interfaces</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

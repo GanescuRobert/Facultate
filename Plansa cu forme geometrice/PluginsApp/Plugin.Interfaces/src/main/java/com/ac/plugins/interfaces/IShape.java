@@ -17,5 +17,5 @@ public interface IShape {
     void read();
     void calculateAP();
     void printDetails();
-  
+    Point getFurtherPoint();
 }

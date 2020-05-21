@@ -18,8 +18,8 @@ public class Square implements IShape {
     String name="Square";
     double area;
     double perimeter;
-    Point center;
-    double side;
+    Point center=new Point();
+    int side;
 
     Scanner sc = new Scanner(System.in);
     
@@ -30,14 +30,14 @@ public class Square implements IShape {
 
     @Override
     public void read() {
-       int x,y;
+      
        System.out.println("Read square");
        System.out.print("\nEnter center coordoante:");
-       System.out.print("\nX= "); x = sc.nextInt();
-       System.out.print("\nY= "); y = sc.nextInt();
+       System.out.print("\nX= "); center.x = sc.nextInt();
+       System.out.print("\nY= "); center.y = sc.nextInt();
        System.out.print("\nEnter the side: ");
-       System.out.print("\nSide= "); side = sc.nextDouble();
-       center= new Point(x,y);
+       System.out.print("\nSide= "); side = sc.nextInt();
+       
     }
    
     @Override
@@ -63,5 +63,9 @@ public class Square implements IShape {
     public void calculateAP(){
        area=calculateArea();
        perimeter=calculatePerimeter();
+    }   
+    @Override
+    public Point getFurtherPoint(){
+        return new Point((int)(center.x+side/2),(int)(center.y +side/2));
     }
 }
